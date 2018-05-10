@@ -1,0 +1,145 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "695624bf-7111-4a07-9aff-bdc8158c3b0b",
+			"name": "AcmeApiCommunications",
+			"description": null,
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ddc2e2f6-0f70-4a9a-86b4-5ffc5c24928f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a15c6718-779f-41ca-a5aa-86fc729c0193",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"variables": null,
+			"order": [
+				"54e3973e-3d7d-488f-b6ae-3c8176739f38",
+				"e2b5e153-903d-4572-ab27-e73a07e88126",
+				"411ce5f5-da0d-4b17-ad67-67802b55e05f",
+				"26b9d5aa-ba64-4bb2-832e-18a915ed089d"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "26b9d5aa-ba64-4bb2-832e-18a915ed089d",
+					"name": "MakeBooking",
+					"url": "http://localhost:58067/api/bookings/make-booking",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "695624bf-7111-4a07-9aff-bdc8158c3b0b",
+					"rawModeData": "{\n\"FirstName\" : \"Edward\",\n\"LastName\" : \"Bailey\",\n\"EmailAddress\" : \"Bailey.Edward@gmail.com\",\n\"TravelDay\" : \"16-May-2018\",\n\"FlightNumber\" : \"MS101\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "411ce5f5-da0d-4b17-ad67-67802b55e05f",
+					"name": "Search booking",
+					"url": "http://localhost:58067/api/bookings/search-bookings",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "695624bf-7111-4a07-9aff-bdc8158c3b0b",
+					"rawModeData": "{\n\"CityFrom\" : \"Melbourne\",\n\"CityTo\" : \"Sydney\",\n\"PassengerName\" : \"Edward Bailey\",\n\"TravelDate\" : \"16-May-2018\",\n\"FlightNumber\" : \"MS101\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "54e3973e-3d7d-488f-b6ae-3c8176739f38",
+					"name": "ListAllFlights",
+					"url": "http://localhost:58067/api/flights/list-flights",
+					"description": "List Availability\t",
+					"data": null,
+					"dataMode": "params",
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "695624bf-7111-4a07-9aff-bdc8158c3b0b",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "e2b5e153-903d-4572-ab27-e73a07e88126",
+					"name": "List Flight Availablity",
+					"url": "http://localhost:58067/api/flights/list-availability/",
+					"description": "",
+					"data": [],
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "695624bf-7111-4a07-9aff-bdc8158c3b0b",
+					"rawModeData": "{\n\"CityFrom\" : \"Melbourne\",\n\"CityTo\" : \"Sydney\",\n\"StartDate\" : \"9-May-2018\",\n\"EndDate\" : \"11-May-2018\",\n\"Pax\" : \"3\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [],
+	"headerPresets": [],
+	"globals": []
+}
