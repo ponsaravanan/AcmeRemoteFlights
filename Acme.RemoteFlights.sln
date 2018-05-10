@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.RemoteFlights.Data", "Acme.RemoteFlights.Data\Acme.RemoteFlights.Data.csproj", "{0A0C6121-630C-43BB-A4C8-9C1C6C6C5B54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.RemoteFlights.Dto", "Acme.RemoteFlights.Dto\Acme.RemoteFlights.Dto.csproj", "{FE51DAE9-13B7-4ED5-B63A-9E85724EE872}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.RemoteFlights.WebApi", "Acme.RemoteFlights.WebApi\Acme.RemoteFlights.WebApi.csproj", "{07D7ABFE-93A4-4181-9427-91835CA9AEBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.RemoteFlights.Business.Contracts", "Acme.RemoteFlights.Business.Contract\Acme.RemoteFlights.Business.Contracts.csproj", "{A3075F83-D40C-4153-AF34-5BC7FE9447B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.RemoteFlights.Business.Repositories", "Acme.RemoteFlights.Business.Repositories\Acme.RemoteFlights.Business.Repositories.csproj", "{4F3DD228-9AD6-4774-AD63-4A0160B52C7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A0C6121-630C-43BB-A4C8-9C1C6C6C5B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0C6121-630C-43BB-A4C8-9C1C6C6C5B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0C6121-630C-43BB-A4C8-9C1C6C6C5B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0C6121-630C-43BB-A4C8-9C1C6C6C5B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE51DAE9-13B7-4ED5-B63A-9E85724EE872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE51DAE9-13B7-4ED5-B63A-9E85724EE872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE51DAE9-13B7-4ED5-B63A-9E85724EE872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE51DAE9-13B7-4ED5-B63A-9E85724EE872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D7ABFE-93A4-4181-9427-91835CA9AEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D7ABFE-93A4-4181-9427-91835CA9AEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D7ABFE-93A4-4181-9427-91835CA9AEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D7ABFE-93A4-4181-9427-91835CA9AEBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3075F83-D40C-4153-AF34-5BC7FE9447B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3075F83-D40C-4153-AF34-5BC7FE9447B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3075F83-D40C-4153-AF34-5BC7FE9447B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3075F83-D40C-4153-AF34-5BC7FE9447B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3DD228-9AD6-4774-AD63-4A0160B52C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3DD228-9AD6-4774-AD63-4A0160B52C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3DD228-9AD6-4774-AD63-4A0160B52C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3DD228-9AD6-4774-AD63-4A0160B52C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF167461-6762-4209-B8FC-4DECADE7BE7A}
+	EndGlobalSection
+EndGlobal

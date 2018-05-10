@@ -1,0 +1,4 @@
+﻿Flight numbers are unique
+Flight serves only once in a day
+Check availabilty added departure city, arrival city 
+Assuming the API and the client is running in the same host & port or client is a non web application(CORS is not enabled).
