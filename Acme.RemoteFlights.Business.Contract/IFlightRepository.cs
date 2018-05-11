@@ -10,6 +10,7 @@ namespace Acme.RemoteFlights.Business.Contracts
     public interface IFlightRepository
     {
        IEnumerable<FlightDTO> List();
-        IEnumerable<FlightAvailabilityResponse> CheckAvailability(FlightAvailabiltyRequest req);
+        bool CheckAvailability(FlightAvailabiltyRequest req);
+        IEnumerable<FlightAvailabilityResponse> ListAvailability(FlightAvailabiltyRequest req);
     }
 }

@@ -16,7 +16,12 @@ namespace Acme.RemoteFlights.Business.Repositories
         {
             _dbCtx = dbContext;
         }
-        public IEnumerable<FlightAvailabilityResponse> CheckAvailability(FlightAvailabiltyRequest req)
+
+        public bool CheckAvailability(FlightAvailabiltyRequest req) =>
+            ListAvailability(req).Any(a => a.AvailableSeats >= req.Pax);
+
+
+        public IEnumerable<FlightAvailabilityResponse> ListAvailability(FlightAvailabiltyRequest req)
         {
             var result = from eachFlight in _dbCtx.Flights.AsNoTracking()
                          join eachBooking in _dbCtx.Bookings.AsNoTracking() on eachFlight.Id equals eachBooking.FlightId

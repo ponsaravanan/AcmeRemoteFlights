@@ -1,4 +1,5 @@
 ﻿using Acme.RemoteFlights.Business.Contracts;
+using Acme.RemoteFlights.Common;
 using Acme.RemoteFlights.Data;
 using Acme.RemoteFlights.Dto.Models;
 using System;
@@ -12,22 +13,17 @@ namespace Acme.RemoteFlights.Business.Repositories
     public class BookingRepository : IBookingRepository
     {
         FlightDbContext _dbCtx;
-        private bool IsValid(BookingRequest req)
-        {
-            if (!_dbCtx.Flights.Any(flight => flight.FlightNo == req.FlightNumber)) throw new Exception("Flight number not found");            
-            if (req.TravelDay < DateTime.Now) throw new Exception("Can't book earlier than today");
+        private IFlightRepository _flightRep;
 
-            return true;
-        }
-
-        public BookingRepository(FlightDbContext dbContext)
+        public BookingRepository(FlightDbContext dbContext, IFlightRepository flightRep)
         {
             _dbCtx = dbContext;
+            _flightRep = flightRep;
         }
         public bool MakeBooking(BookingRequest req)
         {
             if (!IsValid(req)) return false;
-            var foundPassengers = _dbCtx.Passengers.Where(person => person.EmailAddress == req.EmailAddress);            
+            var foundPassengers = _dbCtx.Passengers.Where(person => person.EmailAddress == req.EmailAddress);
             CreateBooking(req, foundPassengers.Any() ? foundPassengers.First() : CreatePassenger(req));
             return true;
         }
@@ -40,7 +36,7 @@ namespace Acme.RemoteFlights.Business.Repositories
             booking.TravelDay = req.TravelDay;
             if (_dbCtx.Bookings.Any(xb => xb.FlightId == booking.FlightId &&
                                          xb.PassengerId == foundPassenger.Id &&
-                                         xb.TravelDay.Value.Date == req.TravelDay.Date)) throw new Exception("Booking already exists");
+                                         xb.TravelDay.Value == req.TravelDay)) throw new HttpException(400, "Booking already exists");
 
             _dbCtx.Bookings.Add(booking);
             _dbCtx.SaveChanges();
@@ -52,12 +48,29 @@ namespace Acme.RemoteFlights.Business.Repositories
             foundPassenger.FirstName = req.FirstName;
             foundPassenger.LastName = req.LastName;
             foundPassenger.EmailAddress = req.EmailAddress;
-            
+
             _dbCtx.Passengers.Add(foundPassenger);
             _dbCtx.SaveChanges();
             return foundPassenger;
         }
+        private bool IsValid(BookingRequest req)
+        {
+            var targetFlights = _dbCtx.Flights.Where(flight => flight.FlightNo == req.FlightNumber);
+            if (!targetFlights.Any()) throw new HttpException(400, "Flight number not found");
+            if (req.TravelDay < DateTime.Now) throw new HttpException(400, "Can't book earlier than today");
 
+            var flights = _flightRep.ListAvailability(new FlightAvailabiltyRequest()
+            {
+                CityFrom = _dbCtx.Cities.FirstOrDefault(x => x.Id == targetFlights.FirstOrDefault().DepartingCityId).CityName,
+                CityTo= _dbCtx.Cities.FirstOrDefault(x => x.Id == targetFlights.FirstOrDefault().ArrivalCityId).CityName,
+                StartDate = req.TravelDay,
+                EndDate = req.TravelDay
+            });
+
+            if(flights.Any(x=> x.AvailableSeats <1)) throw new HttpException(400, "No seats are available");
+          
+            return true;
+        }
         public IEnumerable<BookingSearchResponse> Search(BookingSearchRequest req)
         {
             var result = from eachFlight in _dbCtx.Flights.AsNoTracking()

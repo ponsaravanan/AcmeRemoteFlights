@@ -23,7 +23,11 @@ namespace Acme.RemoteFlights.WebApi.Controllers
         public IEnumerable<FlightDTO> List() => _flightRep.List();
 
         [HttpPost("list-availability")]
-        public IEnumerable<FlightAvailabilityResponse> ListAvailablity([FromBody] FlightAvailabiltyRequest req) => _flightRep.CheckAvailability(req);
+        public IEnumerable<FlightAvailabilityResponse> ListAvailablity([FromBody] FlightAvailabiltyRequest req) => _flightRep.ListAvailability(req);
+
+        [HttpPost("check-availability")]
+        public bool CheckAvaliablity([FromBody] FlightAvailabiltyRequest req) => _flightRep.CheckAvailability(req);
+
 
 
     }

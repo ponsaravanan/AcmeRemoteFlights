@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Acme.RemoteFlights.Business.Contracts;
+﻿using Acme.RemoteFlights.Business.Contracts;
 using Acme.RemoteFlights.Business.Repositories;
-using Acme.RemoteFlights.Data;
+using Acme.RemoteFlights.Data; 
+using Acme.RemoteFlights.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
- 
+
 
 namespace Acme.RemoteFlights.WebApi
 {
@@ -41,8 +36,9 @@ namespace Acme.RemoteFlights.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseHttpException();
             app.UseMvc();
+
         }
     }
 }

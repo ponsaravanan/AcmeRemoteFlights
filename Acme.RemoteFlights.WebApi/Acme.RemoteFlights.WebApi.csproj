@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Acme.RemoteFlights.Business.Contract\Acme.RemoteFlights.Business.Contracts.csproj" />
     <ProjectReference Include="..\Acme.RemoteFlights.Business.Repositories\Acme.RemoteFlights.Business.Repositories.csproj" />
+    <ProjectReference Include="..\Acme.RemoteFlights.Common\Acme.RemoteFlights.Common.csproj" />
   </ItemGroup>
 
 </Project>

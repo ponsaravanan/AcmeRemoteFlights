@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,10 @@
     <ProjectReference Include="..\Acme.RemoteFlights.Business.Contract\Acme.RemoteFlights.Business.Contracts.csproj">
       <Project>{a3075f83-d40c-4153-af34-5bc7fe9447b8}</Project>
       <Name>Acme.RemoteFlights.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Acme.RemoteFlights.Common\Acme.RemoteFlights.Common.csproj">
+      <Project>{c9460bec-9a10-4f17-a063-3f191464d8d3}</Project>
+      <Name>Acme.RemoteFlights.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Acme.RemoteFlights.Data\Acme.RemoteFlights.Data.csproj">
       <Project>{0a0c6121-630c-43bb-a4c8-9c1c6c6c5b54}</Project>
